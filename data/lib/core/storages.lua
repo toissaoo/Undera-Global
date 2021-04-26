@@ -2401,7 +2401,8 @@ GlobalStorage = {
 		-- Reserved storage from 50050 - 50069
 		Dukes = {
 			Krule = 65016,
-			Vlarkorth = 65017
+			Vlarkorth = 65017,
+			Azaram = 65018
 		}
 
 
