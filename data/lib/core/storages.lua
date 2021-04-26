@@ -2402,7 +2402,9 @@ GlobalStorage = {
 		Dukes = {
 			Krule = 65016,
 			Vlarkorth = 65017,
-			Azaram = 65018
+			Azaram = 65018,
+			EarlOsam = 65019,
+			SirBaelocSirNictros = 65020
 		}
 
 

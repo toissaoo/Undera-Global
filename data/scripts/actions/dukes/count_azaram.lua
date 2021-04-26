@@ -1,16 +1,16 @@
 local setting = {
-    centerRoom = {x = 33424, y = 31439, z = 13},
-    storage = Storage.GraveDanger.Dukes.Vlarkorth,
-    bossPosition = {x = 33424, y = 31439, z = 13},
-    kickPosition = {x = 33425, y = 31408, z = 13},
-    playerTeleport = {x = 33424, y = 31432, z = 13}
+    centerRoom = {x = 33424, y = 31472, z = 13},
+    storage = Storage.GraveDanger.Dukes.Azaram,
+    bossPosition = {x = 33424, y = 31472, z = 13},
+    kickPosition = {x = 33423, y = 31497, z = 13},
+    playerTeleport = {x = 33424, y = 31466, z = 13}
 }
 
 local vlarkorthLever = Action()
 
 -- Start Script
 function vlarkorthLever.onUse(creature, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 and item.actionid == 20002 then
+	if item.itemid == 9825 and item.actionid == 20003 then
 	local clearOberonRoom = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)       
 	for index, spectatorcheckface in ipairs(clearOberonRoom) do
 		if spectatorcheckface:isPlayer() then
@@ -23,7 +23,7 @@ function vlarkorthLever.onUse(creature, item, fromPosition, target, toPosition, 
 			removeOberon:remove()
 		end
 	end
-		Game.createMonster("Count Vlarkorth", setting.bossPosition, false, true)
+		Game.createMonster("Lord Azaram", setting.bossPosition, false, true)
 local players = {}
 	for i = 0, 4 do
 		local player1 = Tile({x = (Position(item:getPosition()).x - 2) + i, y = Position(item:getPosition()).y + 1, z = Position(item:getPosition()).z}):getTopCreature()
@@ -50,5 +50,5 @@ local players = {}
 	return true
 end
 
-vlarkorthLever:aid(20002)
+vlarkorthLever:aid(20003)
 vlarkorthLever:register()
