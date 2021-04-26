@@ -26,7 +26,7 @@ cleanProtectionZones = false
 -- Connection Config
 -- NOTE: maxPlayers set to 0 means no limit
 -- NOTE: MaxPacketsPerSeconds if you change you will be subject to bugs by WPE, keep the default value of 25
-ip = "127.0.0.1"
+ip = "104.41.3.128"
 bindOnlyGlobalAddress = false
 loginProtocolPort = 7171
 gameProtocolPort = 7172
@@ -111,9 +111,9 @@ maxMarketOffersAtATimePerPlayer = 100
 
 -- MySQL
 mysqlHost = "127.0.0.1"
-mysqlUser = "root"
-mysqlPass = ""
-mysqlDatabase = "otservbr-global"
+mysqlUser = "underewar"
+mysqlPass = "88147988RAFHAEL"
+mysqlDatabase = "otservbr"
 mysqlPort = 3306
 mysqlSock = ""
 
