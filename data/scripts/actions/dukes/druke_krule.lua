@@ -1,4 +1,4 @@
--- King Zelos
+
 
 local config = {
 	requiredLevel = 250,
@@ -12,7 +12,7 @@ local config = {
 		Position(33459, 31493, 13)
 	},
 	teleportPosition = Position(33456, 31478, 13),
-	bossPosition = Position(33456, 31478, 13))
+	bossPosition = Position(33456, 31478, 13)
 }
 
 local leverboss = Action()
