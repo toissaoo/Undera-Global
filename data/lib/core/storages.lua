@@ -2400,7 +2400,8 @@ GlobalStorage = {
 	GraveDanger = {
 		-- Reserved storage from 50050 - 50069
 		Dukes = {
-			Krule = 65016
+			Krule = 65016,
+			Vlarkorth = 65017
 		}
 
 
