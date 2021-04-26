@@ -2396,7 +2396,12 @@ GlobalStorage = {
 	Inquisition = 65013,
 	Yasir = 65014,
 	NightmareIsle = 65015
-}
+},
+	GraveDanger = {
+		-- Reserved storage from 50050 - 50069
+		Dukes = {
+			Krule = 65016
+		}
 
 
 -- Values extraction function
