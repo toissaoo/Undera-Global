@@ -2380,7 +2380,7 @@ GlobalStorage = {
 		Azaram = 65018,
 		EarlOsam = 65019,
 		SirBaelocSirNictros = 65020
-	}
+	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
 		ThalasSwitchesGlobalStorage = 60160,
