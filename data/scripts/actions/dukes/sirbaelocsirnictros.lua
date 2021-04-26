@@ -1,6 +1,6 @@
 local setting = {
     centerRoom = {x = 33424, y = 31440, z = 13},
-    storage = Storage.GraveDanger.Dukes.SirBaelocSirNictros,
+    storage = Storage.GraveDanger.SirBaelocSirNictros,
     bossPosition = {x = 33424, y = 31440, z = 13},
     kickPosition = {x = 33425, y = 31408, z = 13},
     playerTeleport = {x = 33424, y = 31446, z = 13}

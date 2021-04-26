@@ -1,6 +1,6 @@
 local setting = {
     centerRoom = {x = 33487, y = 31438, z = 13},
-    storage = Storage.GraveDanger.Dukes.EarlOsam,
+    storage = Storage.GraveDanger.EarlOsam,
     bossPosition = {x = 33487, y = 31438, z = 13},
     kickPosition = {x = 33518, y = 31439, z = 13},
     playerTeleport = {x = 33487, y = 31432, z = 13}

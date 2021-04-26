@@ -2374,6 +2374,13 @@ GlobalStorage = {
 		Machine3 = 60147,
 		Machine4 = 60148
 	},
+	GraveDanger = {
+		Krule = 65016,
+		Vlarkorth = 65017,
+		Azaram = 65018,
+		EarlOsam = 65019,
+		SirBaelocSirNictros = 65020
+	}
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
 		ThalasSwitchesGlobalStorage = 60160,
@@ -2396,16 +2403,7 @@ GlobalStorage = {
 	Inquisition = 65013,
 	Yasir = 65014,
 	NightmareIsle = 65015
-},
-	GraveDanger = {
-		-- Reserved storage from 50050 - 50069
-		Dukes = {
-			Krule = 65016,
-			Vlarkorth = 65017,
-			Azaram = 65018,
-			EarlOsam = 65019,
-			SirBaelocSirNictros = 65020
-		}
+}
 
 
 -- Values extraction function
