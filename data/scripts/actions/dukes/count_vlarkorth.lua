@@ -1,16 +1,16 @@
 local config = {
 	requiredLevel = 250,
 	daily = true,
-	roomCenterPosition = Position(33456, 31478, 13),
+	roomCenterPosition = Position(33456, 31437, 13),
 	playerPositions = {
-		Position(33455, 31493, 13),
-		Position(33456, 31493, 13),
-		Position(33457, 31493, 13),
-		Position(33458, 31493, 13),
-		Position(33459, 31493, 13)
+		Position(33455, 31413, 13),
+		Position(33456, 31413, 13),
+		Position(33457, 31413, 13),
+		Position(33458, 31413, 13),
+		Position(33459, 31413, 13)
 	},
-	teleportPosition = Position(33456, 31478, 13),
-	bossPosition = Position(33456, 31478, 13)
+	teleportPosition = Position(33456, 31437, 13),
+	bossPosition = Position(33456, 31437, 13)
 }
 
 local leverboss = Action()
@@ -68,7 +68,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.GraveDanger.KingZelosTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.GraveDanger.CountVlarkothTimer, os.time() + 20*60*60) -- 20 hours
 		end
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
@@ -78,5 +78,5 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-leverboss:aid(20004)
+leverboss:aid(20002)
 leverboss:register()
