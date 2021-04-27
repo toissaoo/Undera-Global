@@ -32,10 +32,10 @@ loginProtocolPort = 7171
 gameProtocolPort = 7172
 statusProtocolPort = 7171
 maxPlayers = 0
-motd = "Bem vindo ao OTServBR-Global!"
+motd = "Bem vindo ao UnderaGlobal!"
 onePlayerOnlinePerAccount = true
 allowClones = false
-serverName = "OTServBR-Global"
+serverName = "Undera"
 statusTimeout = 5 * 1000
 replaceKickOnLogin = true
 maxPacketsPerSecond = 25
@@ -58,8 +58,8 @@ gamestoreByModules = true
 onlyPremiumAccount = false
 
 -- Customs
-weatherRain = false
-thunderEffect = false
+weatherRain = true
+thunderEffect = true
 freeQuests = false
 allConsoleLog = false
 
@@ -119,10 +119,10 @@ mysqlSock = ""
 
 -- Misc.
 allowChangeOutfit = true
-freePremium = false
+freePremium = true
 kickIdlePlayerAfterMinutes = 15
 maxMessageBuffer = 4
-emoteSpells = false
+emoteSpells = true
 classicEquipmentSlots = false
 allowWalkthrough = true
 coinPacketSize = 25
@@ -136,14 +136,14 @@ serverSaveNotifyMessage = true
 serverSaveNotifyDuration = 5
 serverSaveCleanMap = false
 serverSaveClose = false
-serverSaveShutdown = true
+serverSaveShutdown = false
 
 -- Rates
 -- NOTE: rateExp, rateSkill and rateMagic is used as a fallback only
 -- To configure rates see file data/stages.lua
 rateExp = 1
 rateSkill = 50
-rateLoot = 3
+rateLoot = 2.2
 rateMagic = 25
 rateSpawn = 1
 
