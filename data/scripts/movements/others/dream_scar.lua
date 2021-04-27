@@ -1,6 +1,6 @@
 local config = {
-    [9238] = Position(32208, 32092, 13),
-    [9239] = Position(32208, 32092, 13)
+    [9238] = Position(30001, 32092, 13),
+    [9239] = Position(30002, 32092, 13)
 }
 
 local variavelName = MoveEvent()
@@ -17,7 +17,7 @@ function variavelName.onStepIn(creature, item, position, fromPosition)
     end
 
     player:teleportTo(targetPosition)
-    targetPosition:sendMagicEffect(CONST_ME_WATERSPLASH)
+    targetPosition:sendMagicEffect(CONST_ME_TELEPORT)
     player:sendTextMessage(MESSAGE_EVENT_ADVANCE, "You have been teleported to Dream Scar.")
     return true
 end
