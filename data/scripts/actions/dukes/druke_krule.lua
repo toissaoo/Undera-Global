@@ -1,5 +1,3 @@
-
-
 local config = {
 	requiredLevel = 250,
 	daily = true,
@@ -70,7 +68,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.GraveDanger.KingZelosTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.GraveDanger.DukeKruleTimer, os.time() + 20*60*60) -- 20 hours
 		end
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
