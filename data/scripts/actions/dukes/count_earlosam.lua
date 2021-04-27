@@ -1,54 +1,82 @@
-local setting = {
-    centerRoom = {x = 33487, y = 31438, z = 13},
-    storage = Storage.GraveDanger.EarlOsam,
-    bossPosition = {x = 33487, y = 31438, z = 13},
-    kickPosition = {x = 33518, y = 31439, z = 13},
-    playerTeleport = {x = 33487, y = 31432, z = 13}
+local config = {
+	requiredLevel = 250,
+	daily = true,
+	roomCenterPosition = Position(33488, 31438, 13),
+	playerPositions = {
+		Position(33516, 31493, 13),
+		Position(33517, 31444, 13),
+		Position(33518, 31444, 13),
+		Position(33519, 31444, 13),
+		Position(33520, 31444, 13)
+	},
+	teleportPosition = Position(33488, 31438, 13),
+	bossPosition = Position(33488, 31438, 13)
 }
 
-local vlarkorthLever = Action()
+local leverboss = Action()
 
--- Start Script
-function vlarkorthLever.onUse(creature, item, fromPosition, target, toPosition, isHotkey)
-	if item.itemid == 9825 and item.actionid == 20005 then
-	local clearOberonRoom = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)       
-	for index, spectatorcheckface in ipairs(clearOberonRoom) do
-		if spectatorcheckface:isPlayer() then
-			creature:sendTextMessage(MESSAGE_EVENT_ADVANCE, "Someone is fighting against the boss! You need wait awhile.")
-			return false
+function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotkey)
+	if item.itemid == 9825 then
+		-- Check if the player that pulled the lever is on the correct position
+		if player:getPosition() ~= config.playerPositions[1] then
+			player:sendTextMessage(MESSAGE_STATUS_SMALL, "You can\'t start the battle.")
+			return true
 		end
-	end	
-	for index, removeOberon in ipairs(clearOberonRoom) do
-		if (removeOberon:isMonster()) then
-			removeOberon:remove()
+		
+		local team, participant = {}
+
+		for i = 1, #config.playerPositions do
+			participant = Tile(config.playerPositions[i]):getTopCreature()
+			
+			-- Check there is a participant player
+			if participant and participant:isPlayer() then
+				-- Check participant level
+				if participant:getLevel() < config.requiredLevel then
+					player:sendTextMessage(MESSAGE_STATUS_SMALL,
+						"All the players need to be level ".. config.requiredLevel .." or higher.")
+					return true
+				end
+
+				-- Check participant boss timer
+				if config.daily and participant:getStorageValue(Storage.GraveDanger.KingZelosTimer) > os.time() then
+					player:getPosition():sendMagicEffect(CONST_ME_POFF)
+					player:sendCancelMessage("Not all players are ready yet from last battle.")
+					return true
+				end
+
+				team[#team + 1] = participant
+			end
 		end
-	end
-		Game.createMonster("Earl Osam", setting.bossPosition, false, true)
-local players = {}
-	for i = 0, 4 do
-		local player1 = Tile({x = (Position(item:getPosition()).x - 2) + i, y = Position(item:getPosition()).y + 1, z = Position(item:getPosition()).z}):getTopCreature()
-		players[#players+1] = player1
-	end
-		for i, player in ipairs(players) do
-			player:getPosition():sendMagicEffect(CONST_ME_POFF)
-			player:teleportTo(Position(setting.playerTeleport), false)
-			doSendMagicEffect(player:getPosition(), CONST_ME_TELEPORT)
-			setPlayerStorageValue(player,setting.storage, os.time() + 20 * 60 * 60)
-            player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'You have 20 minute(s) to defeat the boss.')
-				addEvent(function()
-					local spectatorsOberon = Game.getSpectators(Position(setting.centerRoom), false, false, 10, 10, 10, 10)
-						for u = 1, #spectatorsOberon, 1 do
-							if spectatorsOberon[u]:isPlayer() and (spectatorsOberon[u]:getName() == player:getName()) then
-								player:teleportTo(Position(setting.kickPosition))
-								player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-								player:sendTextMessage(MESSAGE_EVENT_ADVANCE, 'Time is over.')
-							end
-						end
-				end, 20 * 60 * 1000)
+
+		-- Check if a team currently inside the boss room
+		local specs, spec = Game.getSpectators(config.roomCenterPosition, false, false, 14, 14, 13, 13)
+		for i = 1, #specs do
+			spec = specs[i]
+			if spec:isPlayer() then
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the boss room.")
+				return true
+			end
+
+			spec:remove()
 		end
+
+		-- Spawn boss
+		Game.createMonster("Earl Osam", config.bossPosition)
+
+		-- Teleport team participants
+		for i = 1, #team do
+			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
+			team[i]:teleportTo(config.teleportPosition)
+			-- Assign boss timer
+			team[i]:setStorageValue(Storage.GraveDanger.EarlOsam, os.time() + 20*60*60) -- 20 hours
+		end
+		
+		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
+
+	item:transform(9825)
 	return true
 end
 
-vlarkorthLever:aid(20005)
-vlarkorthLever:register()
+leverboss:aid(20005)
+leverboss:register()
