@@ -9,7 +9,7 @@ local config = {
 		Position(33425, 31493, 13),
 		Position(33426, 31493, 13)
 	},
-	teleportPosition = Position(33424, 31473, 13),
+	teleportPosition = Position(33424, 31467, 13),
 	bossPosition = Position(33424, 31473, 13)
 }
 
