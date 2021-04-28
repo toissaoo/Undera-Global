@@ -73,6 +73,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
+	return true
 
 	item:transform(9825)
 	return true
