@@ -3,7 +3,7 @@ local config = {
 	daily = true,
 	roomCenterPosition = Position(33488, 31438, 13),
 	playerPositions = {
-		Position(33516, 31493, 13),
+		Position(33516, 31444, 13),
 		Position(33517, 31444, 13),
 		Position(33518, 31444, 13),
 		Position(33519, 31444, 13),
