@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "Leather Legs", chance = 81000},
 	{name = "Violet Gem", chance = 55000},
 	{name = "Knight Legs", chance = 50000},
-	{name = "Meat", chance = 80000} maxCount = 3},
+	{name = "Meat", chance = 80000 maxCount = 3},
 	{name = "Lion Crest", chance = 65000},
 	{name = "Lion Cloack Patch", chance = 65000},
 	{name = "Great Mana Potion", chance = 39000, maxCount = 1},
@@ -97,7 +97,7 @@ monster.loot = {
 
 monster.attacks = {
 	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500},
-		{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -210, maxDamage = -300, range = 1, shootEffect = CONST_ANI_ICE, target = false}
+	{name ="combat", interval = 2000, chance = 10, type = COMBAT_ENERGYDAMAGE, minDamage = -210, maxDamage = -400, range = 1, shootEffect = CONST_ANI_ICE, target = false}
 }
 
 monster.defenses = {
@@ -106,16 +106,16 @@ monster.defenses = {
 }
 
 monster.elements = {
-	{type = COMBAT_PHYSICALDAMAGE, percent = -10},
-	{type = COMBAT_ENERGYDAMAGE, percent = 90},
-	{type = COMBAT_EARTHDAMAGE, percent = 90},
+	{type = COMBAT_PHYSICALDAMAGE, percent = 65},
+	{type = COMBAT_ENERGYDAMAGE, percent = 0},
+	{type = COMBAT_EARTHDAMAGE, percent = 0},
 	{type = COMBAT_FIREDAMAGE, percent = 90},
 	{type = COMBAT_LIFEDRAIN, percent = 0},
 	{type = COMBAT_MANADRAIN, percent = 0},
 	{type = COMBAT_DROWNDAMAGE, percent = 0},
-	{type = COMBAT_ICEDAMAGE, percent = 90},
-	{type = COMBAT_HOLYDAMAGE , percent = 90},
-	{type = COMBAT_DEATHDAMAGE , percent = 90}
+	{type = COMBAT_ICEDAMAGE, percent = 80},
+	{type = COMBAT_HOLYDAMAGE , percent = 85},
+	{type = COMBAT_DEATHDAMAGE , percent = -15}
 }
 
 monster.immunities = {
