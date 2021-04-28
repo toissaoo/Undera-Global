@@ -61,7 +61,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		end
 
 		-- Spawn boss
-		Game.createMonster("Count Vlarkorth", config.bossPosition)
+		Game.createMonster("Lord Vlarkorth", config.bossPosition)
 
 		-- Teleport team participants
 		for i = 1, #team do
