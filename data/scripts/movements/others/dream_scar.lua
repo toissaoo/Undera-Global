@@ -1,6 +1,6 @@
 local config = {
-    [9238] = Position(30001, 32092, 13),
-    [9239] = Position(30002, 32092, 13)
+    [30001] = Position(32042, 32092, 13),
+    [30002] = Position(32043, 32092, 13)
 }
 
 local variavelName = MoveEvent()
