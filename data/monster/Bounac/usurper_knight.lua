@@ -2,7 +2,7 @@ local mType = Game.createMonsterType("Usurper Knight")
 local monster = {}
 
 monster.description = "a usurper knight"
-monster.experience = 400
+monster.experience = 6900
 monster.outfit = {
 	lookType = 1316,
 	lookHead = 76,
@@ -15,27 +15,27 @@ monster.outfit = {
 
 monster.raceId = 679
 monster.Bestiary = {
-	class = "Plant",
-	race = BESTY_RACE_PLANT,
-	toKill = 5,
-	FirstUnlock = 2,
-	SecondUnlock = 3,
+	class = "Human",
+	race = BESTY_RACE_HUMAN,
+	toKill = 2500,
+	FirstUnlock = 100,
+	SecondUnlock = 1000,
 	CharmsPoints = 50,
-	Stars = 3,
-	Occurrence = 3,
-	Locations = "Green Claw Swamp underground, near the big witches' cauldron."
+	Stars = 4,
+	Occurrence = 1,
+	Locations = "Bounac, the Order of the Lion settlement."
 	}
 
-monster.health = 2500
-monster.maxHealth = 2500
-monster.race = "venom"
+monster.health = 8200
+monster.maxHealth = 8200
+monster.race = "blood"
 monster.corpse = 9867
-monster.speed = 230
+monster.speed = 130
 monster.manaCost = 0
 monster.maxSummons = 0
 
 monster.changeTarget = {
-	interval = 0,
+	interval = 2000,
 	chance = 8
 }
 
@@ -61,9 +61,9 @@ monster.flags = {
 	runHealth = 0,
 	healthHidden = false,
 	isBlockable = false,
-	canWalkOnEnergy = false,
-	canWalkOnFire = false,
-	canWalkOnPoison = false,
+	canWalkOnEnergy = true,
+	canWalkOnFire = true,
+	canWalkOnPoison = true,
 	pet = false
 }
 
@@ -75,17 +75,28 @@ monster.light = {
 monster.voices = {
 	interval = 5000,
 	chance = 10,
-	{text = "You shall not succeed!", yell = false},
-	{text = "This time we will prevail!", yell = false}
+	{text = "This town is ours now!", yell = false},
+	{text = "You don't deserve Bounac!", yell = false},
+	{text = "Do you really think you can stand?", yell = false}
 }
 
 monster.loot = {
-	{id = 2250, chance = 15220, maxCount = 96},
-	{name = "dry piece of wood", chance = 100000}
+	{name = "Platinum Coin", chance = 90000, maxCount = 5},
+	{name = "Leather Legs", chance = 81000},
+	{name = "Violet Gem", chance = 55000},
+	{name = "Knight Legs", chance = 50000},
+	{name = "Meat", chance = 80000} maxCount = 3},
+	{name = "Lion Crest", chance = 65000},
+	{name = "Lion Cloack Patch", chance = 65000},
+	{name = "Great Mana Potion", chance = 39000, maxCount = 1},
+	{name = "Magma Legs", chance = 30000},
+	{name = "Green Gem", chance = 32000},
+	{name = "Blue Gem", chance = 32000},
+	{name = "Gold Ingot", chance = 32000}
 }
 
 monster.attacks = {
-	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -150}
+	{name ="melee", interval = 2000, chance = 100, minDamage = 0, maxDamage = -500}
 }
 
 monster.defenses = {
