@@ -38,7 +38,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(Storage.GraveDanger.KingZelosTimer) > os.time() then
+				if config.daily and participant:getStorageValue(Storage.GraveDanger.SirbalocSinictros) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					player:sendCancelMessage("Not all players are ready yet from last battle.")
 					return true
