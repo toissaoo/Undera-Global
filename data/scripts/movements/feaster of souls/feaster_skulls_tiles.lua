@@ -1,6 +1,14 @@
 local config = {
-	[30005] = Position(33481, 31452, 9),
-	[30006] = Position(33484, 31435, 8)
+    [30003] = Position(33534, 31444, 8),
+	[30004] = Position(33545, 31444, 8),
+	[30005] = Position(33482, 31452, 9),
+	[30006] = Position(33485, 31435, 8),
+	[30007] = Position(33540, 31412, 9),
+	[30008] = Position(33530, 31410, 9),
+	[30009] = Position(33550, 31440, 9),
+	[30010] = Position(33538, 31440, 9),
+	[30011] = Position(33571, 31467, 9),
+    [30012] = Position(33557, 31467, 9)
 }
 
 local variavelName = MoveEvent()
@@ -17,7 +25,7 @@ function variavelName.onStepIn(creature, item, position, fromPosition)
     end
 
     player:teleportTo(targetPosition)
-    targetPosition:sendMagicEffect(CONST_ME_MORTAREA)
+    targetPosition:sendMagicEffect(CONST_ME_206)
     return true
 end
 
