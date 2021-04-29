@@ -8,12 +8,13 @@ local config = {
 	[30009] = Position(33549, 31440, 9),
 	[30010] = Position(33539, 31440, 9),
 	[30011] = Position(33570, 31467, 9),
-    [30012] = Position(33558, 31467, 9)
+    [30012] = Position(33558, 31467, 9),
+	-- Entrada Port Hope --
 }
 
-local variavelName = MoveEvent()
+local feasterskulltile = MoveEvent()
 
-function variavelName.onStepIn(creature, item, position, fromPosition)
+function feasterskulltile.onStepIn(creature, item, position, fromPosition)
     local player = creature:getPlayer()
     if not player then
         return true
@@ -29,10 +30,10 @@ function variavelName.onStepIn(creature, item, position, fromPosition)
     return true
 end
 
-variavelName:type("stepin")
+feasterskulltile:type("stepin")
 
 for index, value in pairs(config) do
-    variavelName:uid(index)
+    feasterskulltile:uid(index)
 end
 
-variavelName:register()
+feasterskulltile:register()
