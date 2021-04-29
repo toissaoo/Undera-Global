@@ -1,4 +1,5 @@
 local config = {
+		-- TPS PH--
     [30003] = Position(33534, 31444, 8),
 	[30004] = Position(33545, 31444, 8),
 	[30005] = Position(33482, 31452, 9),
@@ -8,7 +9,9 @@ local config = {
 	[30009] = Position(33550, 31440, 9),
 	[30010] = Position(33538, 31440, 9),
 	[30011] = Position(33571, 31467, 9),
-    [30012] = Position(33557, 31467, 9)
+    [30012] = Position(33557, 31467, 9),
+	--Exit Unazz--{x = 33565, y = 31480, z = 8}
+	[4601] = Position(33565, 31480, 8)
 }
 
 local variavelName = MoveEvent()
