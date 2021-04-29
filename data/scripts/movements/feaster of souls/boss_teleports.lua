@@ -1,4 +1,3 @@
-
 	local UniqueTable = {
 	-- Tazhadur entrance
 	[4602] = {
@@ -42,6 +41,7 @@
 	}
 }
 
+
 local entranceTeleport = MoveEvent()
 function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
@@ -69,9 +69,8 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
-	
-	if player:getStorageValue(setting.storage) >= setting.value then
-		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
+	if player:getStorageValue(setting.timer) < os.time() then
+			local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
 		if not monster then
 			return true
 		end
