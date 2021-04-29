@@ -1,10 +1,10 @@
 	local UniqueTable = {
 	-- Tazhadur entrance
 	[4602] = {
-		storage = Storage.Fot.Unazz,
+		storage = Storage.FirstDragon.Unazz,
 		value = 200,
 		range = 10,
-		timer = Storage.Fot.Unazz,
+		timer = Storage.FirstDragon.Unazz,
 		newPos = {x = 33573, y = 31494, z = 8},
 		bossName = "Unaz the Mean",
 		bossPos = {x = 33573, y = 31494, z = 8}
