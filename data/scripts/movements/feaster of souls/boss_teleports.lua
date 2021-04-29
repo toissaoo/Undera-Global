@@ -2,6 +2,7 @@
 	local UniqueTable = {
 	-- Tazhadur entrance
 	[4602] = {
+		storage = Storage.Fot.Unazz,
 		value = 200,
 		range = 10,
 		timer = Storage.Fot.Unazz,
