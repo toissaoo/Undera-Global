@@ -11,7 +11,7 @@ function feasterentrance.onStepIn(creature, item, position, fromPosition)
         return true
     end
 
-    local targetPosition = config[item.uid]
+    local targetPosition = config[item.aid]
     if not targetPosition then
         return true
     end
@@ -24,7 +24,7 @@ end
 feasterentrance:type("stepin")
 
 for index, value in pairs(config) do
-    feasterentrance:uid(index)
+    feasterentrance:aid(index)
 end
 
 feasterentrance:register()
