@@ -1,7 +1,7 @@
 local config = {
 	[4600] = {
 		timer = 65021,
-		range = 20,
+		range = 8,
 		newPos = Position(33573, 31495, 8),
 		bossName = 'Unaz the Mean',
 		bossPos = Position(33573, 31495, 8)
