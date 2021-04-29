@@ -7,12 +7,12 @@ local feasterentrance = MoveEvent()
 
 function feasterentrance.onStepIn(creature, item, position, fromPosition)
     local player = creature:getPlayer()
-    if not player then
+    if not player and player:getLevel() <= requiredLevel then
         return true
     end
 
     local targetPosition = config[item.uid]
-    if not targetPosition and player:getLevel() < requiredLevel then
+    if not targetPosition then
         return true
     end
 
