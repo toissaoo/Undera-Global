@@ -2381,11 +2381,12 @@ GlobalStorage = {
 		EarlOsam = 65019,
 		SirbalocSinictros = 65020
 	},
-		FeasterOfSoul = {
+		Fot = {
+		-- Reserved storage from 50350 - 50379
 		Unazz = 65021,
 		Irgix = 65022,
 		Vok = 65023,
-		UnazzTimer = 65024,
+		UnazzTimer = 65024
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169

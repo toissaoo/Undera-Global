@@ -4,7 +4,7 @@
 	[4602] = {
 		value = 200,
 		range = 10,
-		timer = Storage.FeasterOfSoul.Unazz,
+		timer = Storage.Fot.Unazz,
 		newPos = {x = 33573, y = 31494, z = 8},
 		bossName = "Unaz the Mean",
 		bossPos = {x = 33573, y = 31494, z = 8}
