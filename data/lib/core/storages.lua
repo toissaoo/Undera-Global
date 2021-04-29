@@ -2381,6 +2381,11 @@ GlobalStorage = {
 		EarlOsam = 65019,
 		SirbalocSinictros = 65020
 	},
+		FeasterOfSoul = {
+		Unazz = 65021,
+		Irgix = 65022,
+		Vok = 65023
+	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
 		ThalasSwitchesGlobalStorage = 60160,
