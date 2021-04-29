@@ -1,6 +1,6 @@
 local config = {
 	[4600] = {
-		timer = Storage.Fot.Unazz,
+		timer = 65021,
 		range = 20,
 		newPos = Position(33573, 31495, 8),
 		bossName = 'Unaz the Mean',
