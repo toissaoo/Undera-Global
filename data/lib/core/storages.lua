@@ -2375,11 +2375,11 @@ GlobalStorage = {
 		Machine4 = 60148
 	},
 	GraveDanger = {
-		Krule = 65016,
-		Vlarkorth = 65017,
-		Azaram = 65018,
+		DukeKrule = 65016,
+		LordVarkloth = 65017,
+		CountAzaram = 65018,
 		EarlOsam = 65019,
-		SirBaelocSirNictros = 65020
+		SirbalocSinictros = 65020
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
