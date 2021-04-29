@@ -40,8 +40,8 @@ function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	local monster = Game.createMonster(teleport.bossName, teleport.bossPos, true, true)
 	if not monster then
 		return true
-	end
 
+	end
 	position:sendMagicEffect(CONST_ME_TELEPORT)
 	player:teleportTo(teleport.newPos)
 	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
