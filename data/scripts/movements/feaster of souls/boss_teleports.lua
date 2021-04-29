@@ -69,14 +69,6 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
-
-	if player:getStorageValue(Storage.FirstDragon.Questline) < 1 or player:getStorageValue(setting.storage) < setting.value then
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
-		return true
-	end
 	
 	if player:getStorageValue(setting.storage) >= setting.value then
 		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
