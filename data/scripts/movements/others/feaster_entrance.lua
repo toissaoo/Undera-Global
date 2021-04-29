@@ -1,5 +1,7 @@
 local config = {
-    [30013] = Position(33558, 31467, 9)
+		-- Port Hope Entrance --
+    [14518] = Position(33615, 31414, 8)
+	[14519] = Position(33615, 31414, 8)
 	
 }
 local requiredLevel = 250
@@ -11,7 +13,7 @@ function feasterentrance.onStepIn(creature, item, position, fromPosition)
         return true
     end
 
-    local targetPosition = config[item.uid]
+    local targetPosition = config[item.aid]
     if not targetPosition then
         return true
     end
@@ -24,7 +26,7 @@ end
 feasterentrance:type("stepin")
 
 for index, value in pairs(config) do
-    feasterentrance:uid(index)
+    feasterentrance:aid(index)
 end
 
 feasterentrance:register()
