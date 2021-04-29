@@ -68,7 +68,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.GraveDanger.CountVlarkothTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.GraveDanger.LordVarkloth, os.time() + 20*60*60) -- 20 hours
 		end
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
