@@ -25,7 +25,7 @@ function variavelName.onStepIn(creature, item, position, fromPosition)
     end
 
     player:teleportTo(targetPosition)
-    targetPosition:sendMagicEffect(CONST_ME_206)
+    targetPosition:sendMagicEffect(CONST_ME,206)
     return true
 end
 
