@@ -1,6 +1,6 @@
 local config = {
 		-- Port Hope Entrance --
-    [14518] = Position(33615, 31414, 8)
+    [14518] = Position(33615, 31414, 8),
 	[14519] = Position(33615, 31414, 8)
 	
 }
