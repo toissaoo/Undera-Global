@@ -2382,7 +2382,6 @@ GlobalStorage = {
 		SirbalocSinictros = 65020
 	},
 		Fot = {
-	
 		Unazz = 65021,
 		Irgix = 65022,
 		Vok = 65023,

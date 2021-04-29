@@ -1,93 +1,58 @@
-	local UniqueTable = {
-	-- Tazhadur entrance
-	[4602] = {
-		storage = Storage.FirstDragon.Unazz,
-		value = 200,
-		range = 10,
-		timer = Storage.FirstDragon.Unazz,
-		newPos = {x = 33573, y = 31494, z = 8},
-		bossName = "Unaz the Mean",
-		bossPos = {x = 33573, y = 31494, z = 8}
-	},
-	-- Kalyassa entrance
-	[35002] = {
-		storage = Storage.FirstDragon.ChestCounter,
-		value = 5,
-		range = 10,
-		timer = Storage.FirstDragon.KalyassaTimer,
-		newPos = {x = 32078, y = 32456, z = 8},
-		bossName = "Kalyassa",
-		bossPos = {x = 32079, y = 32459, z = 8}
-	},
-	-- Zorvorax entrance
-	[35003] = {
-		storage = Storage.FirstDragon.SecretsCounter,
-		value = 3,
-		range = 10,
-		timer = Storage.FirstDragon.ZorvoraxTimer,
-		newPos = {x = 32008, y = 32396, z = 8},
-		bossName = "Zorvorax",
-		bossPos = {x = 32015, y = 32396, z = 8}
-	},
-	-- Gelidrazah entrance
-	[35004] = {
-		storage = Storage.FirstDragon.GelidrazahAccess,
-		value = 1,
-		range = 10,
-		timer = Storage.FirstDragon.GelidrazahTimer,
-		newPos = {x = 32076, y = 32402, z = 8},
-		bossName = "Gelidrazah The Frozen",
-		bossPos = {x = 32078, y = 32400, z = 8}
+local config = {
+	[4600] = {
+		timer = Storage.Fot.Unazz,
+		range = 20,
+		newPos = Position(33573, 31495, 8),
+		bossName = 'Unaz the Mean',
+		bossPos = Position(33573, 31495, 8)
 	}
 }
 
+local unazzEntrance = MoveEvent()
 
-local entranceTeleport = MoveEvent()
-function entranceTeleport.onStepIn(creature, item, position, fromPosition)
+function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return
 	end
 
-	local setting = UniqueTable[item.uid]
-	if not setting then
+	local teleport = config[item.actionid]
+	if not teleport then
+		return
+	end
+
+	if player:getStorageValue(teleport.timer) > os.time() then
+		position:sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(fromPosition, true)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:say('You have to wait to challenge this enemy again!', TALKTYPE_MONSTER_SAY)
 		return true
 	end
 
-	if roomIsOccupied(setting.bossPos, setting.range, setting.range) then
+	if roomIsOccupied(teleport.bossPos, teleport.range, teleport.range) then
+		position:sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("Someone is fighting against the boss! You need wait a while.", TALKTYPE_MONSTER_SAY)
+		player:say('Someone is fighting against the boss! You need wait awhile.', TALKTYPE_MONSTER_SAY)
+		return true
+	end
+	clearRoom(teleport.bossPos, teleport.range, teleport.range, fromPosition)
+	local monster = Game.createMonster(teleport.bossName, teleport.bossPos, true, true)
+	if not monster then
 		return true
 	end
 
-	if player:getStorageValue(setting.timer) >= os.time() then
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
-		return true
-	end
-	if player:getStorageValue(setting.timer) < os.time() then
-			local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
-		if not monster then
-			return true
-		end
-
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(setting.newPos)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("You have ten minutes to kill and loot this boss. Otherwise you will lose that chance and will be kicked out.", TALKTYPE_MONSTER_SAY)
-		player:setStorageValue(setting.timer, os.time() + 2 * 3600)
-		addEvent(clearBossRoom, 60 * 30 * 1000, player.uid, monster.uid, setting.bossPos, setting.range, fromPosition)
-		return true
-	end
+	position:sendMagicEffect(CONST_ME_TELEPORT)
+	player:teleportTo(teleport.newPos)
+	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+	player:say(
+		'You have ten minutes to kill and loot this boss. \z
+		Otherwise you will lose that chance and will be kicked out.', TALKTYPE_MONSTER_SAY)
+	addEvent(clearBossRoom, 60 * 10 * 2000, player.uid, monster.uid, teleport.bossPos, teleport.range, teleport.range, fromPosition)
+	player:setStorageValue(teleport.timer, os.time() + 2 * 3600)
 	return true
 end
 
-for index, value in pairs(UniqueTable) do
-	entranceTeleport:uid(index)
-end
-
-entranceTeleport:register()
+unazzEntrance:type("stepin")
+unazzEntrance:aid(4600)
+unazzEntrance:register()
