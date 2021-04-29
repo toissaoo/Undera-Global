@@ -1,10 +1,9 @@
 local UniqueTable = {
 	-- Unazz entrance
 	[4602] = {
-		storage = Storage.FeasterOfSoul.Unazz,
 		value = 200,
 		range = 10,
-		timer = Storage.FeasterOfSoul.UnazzTimer,
+		timer = Storage.FeasterOfSoul.Unazz,
 		newPos = {x = 33573, y = 31494, z = 8},
 		bossName = "Unaz the Mean",
 		bossPos = {x = 33573, y = 31494, z = 8}
@@ -38,16 +37,8 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
-
-	if player:getStorageValue(Storage.FirstDragon.Questline) < 1 or player:getStorageValue(setting.storage) < setting.value then
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:teleportTo(fromPosition)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
-		return true
-	end
 	
-	if player:getStorageValue(setting.storage) >= setting.value then
+	if player:getStorageValue(setting.timer) < os.time() then
 		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
 		if not monster then
 			return true
