@@ -1,5 +1,6 @@
-local UniqueTable = {
-	-- Unazz entrance
+
+	local UniqueTable = {
+	-- Tazhadur entrance
 	[4602] = {
 		value = 200,
 		range = 10,
@@ -7,6 +8,36 @@ local UniqueTable = {
 		newPos = {x = 33573, y = 31494, z = 8},
 		bossName = "Unaz the Mean",
 		bossPos = {x = 33573, y = 31494, z = 8}
+	},
+	-- Kalyassa entrance
+	[35002] = {
+		storage = Storage.FirstDragon.ChestCounter,
+		value = 5,
+		range = 10,
+		timer = Storage.FirstDragon.KalyassaTimer,
+		newPos = {x = 32078, y = 32456, z = 8},
+		bossName = "Kalyassa",
+		bossPos = {x = 32079, y = 32459, z = 8}
+	},
+	-- Zorvorax entrance
+	[35003] = {
+		storage = Storage.FirstDragon.SecretsCounter,
+		value = 3,
+		range = 10,
+		timer = Storage.FirstDragon.ZorvoraxTimer,
+		newPos = {x = 32008, y = 32396, z = 8},
+		bossName = "Zorvorax",
+		bossPos = {x = 32015, y = 32396, z = 8}
+	},
+	-- Gelidrazah entrance
+	[35004] = {
+		storage = Storage.FirstDragon.GelidrazahAccess,
+		value = 1,
+		range = 10,
+		timer = Storage.FirstDragon.GelidrazahTimer,
+		newPos = {x = 32076, y = 32402, z = 8},
+		bossName = "Gelidrazah The Frozen",
+		bossPos = {x = 32078, y = 32400, z = 8}
 	}
 }
 
@@ -37,8 +68,16 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
+
+	if player:getStorageValue(Storage.FirstDragon.Questline) < 1 or player:getStorageValue(setting.storage) < setting.value then
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:teleportTo(fromPosition)
+		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
+		player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
+		return true
+	end
 	
-	if player:getStorageValue(setting.timer) < os.time() then
+	if player:getStorageValue(setting.storage) >= setting.value then
 		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
 		if not monster then
 			return true
