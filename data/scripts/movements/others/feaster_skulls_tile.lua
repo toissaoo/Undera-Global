@@ -9,7 +9,7 @@ local config = {
 	[30010] = Position(33539, 31440, 9),
 	[30011] = Position(33570, 31467, 9),
     [30012] = Position(33558, 31467, 9),
-	-- Entrada Port Hope --
+	
 }
 
 local feasterskulltile = MoveEvent()
