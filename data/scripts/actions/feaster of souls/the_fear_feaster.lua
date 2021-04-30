@@ -1,16 +1,16 @@
 local config = {
 	requiredLevel = 250,
 	dailtrue,
-	roomCenterPosition = Position{x = 33711, y = 31468, z = 14},
+	roomCenterPosition = Position{33711, 31468, 14},
 	playerPositions = {
-		Position{x = 33734, y = 31471, z = 14},
-		Position{x = 33735, y = 31471, z = 14},
-		Position{x = 33736, y = 31471, z = 14},
-		Position{x = 33737, y = 31471, z = 14},
-		Position{x = 33738, y = 31471, z = 14}
+		Position{33734, 31471, 14},
+		Position{33735, 31471, 14},
+		Position{33736, 31471, 14},
+		Position{33737, 31471, 14},
+		Position{33738, 31471, 14}
 	},
-	teleportPosition = Position{x = 33711, y = 31474, z = 14},
-	bossPosition = Position{x = 33711, y = 31468, z = 14}
+	teleportPosition = Position{33711, 31474, 14},
+	bossPosition = Position{33711, 31468, 14}
 }
 
 local leverboss = Action()
