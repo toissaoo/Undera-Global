@@ -1,16 +1,16 @@
 local config = {
-	[4600] = {
+	[4602] = {
 		timer = 65021,
 		range = 8,
-		newPos = Position(33573, 31495, 8),
-		bossName = 'Unaz the Mean',
-		bossPos = Position(33573, 31495, 8)
+		newPos = Position{33467, 31399, 8},
+		bossName = 'Igrix the Flimsy',
+		bossPos = Position{33467, 31405, 8}
 	}
 }
 
-local unazzEntrance = MoveEvent()
+local IgrixEntrance = MoveEvent()
 
-function unazzEntrance.onStepIn(creature, item, position, fromPosition)
+function IgrixEntrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return
@@ -32,8 +32,8 @@ function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	if roomIsOccupied(teleport.bossPos, teleport.range, teleport.range) then
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition, true)
-		player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-		player:say('Someone is fighting against the boss! You need wait awhile.', TALKTYPE_MONSTER_SAY)
+		player:getPosition():sendMagicEffect(CONST_ME_MORTAREA)
+		player:say('Someone is fighting against the boss! You need wait a while.', TALKTYPE_MONSTER_SAY)
 		return true
 	end
 	clearRoom(teleport.bossPos, teleport.range, teleport.range, fromPosition)
@@ -53,6 +53,6 @@ function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-unazzEntrance:type("stepin")
-unazzEntrance:aid(4600)
-unazzEntrance:register()
+IgrixEntrance:type("stepin")
+IgrixEntrance:aid(4602)
+IgrixEntrance:register()
