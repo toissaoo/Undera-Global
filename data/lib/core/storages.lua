@@ -2381,6 +2381,7 @@ GlobalStorage = {
 		EarlOsam = 65019,
 		SirbalocSinictros = 65020
 	},
+	-- Reserved storage from 65021 - 65028
 	Fot = {
 		Unazz = 65021,
 		Irgix = 65022,
