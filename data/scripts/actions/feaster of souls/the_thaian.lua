@@ -26,7 +26,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		local team, participan{}
 
 		for i = 1, #config.playerPositions do
-			participanTile(config.playerPositions[i]):getTopCreature()
+			participan = Tile(config.playerPositions[i]):getTopCreature()
 			
 			-- Check there is a participant player
 			if participant and participant:isPlayer() then
