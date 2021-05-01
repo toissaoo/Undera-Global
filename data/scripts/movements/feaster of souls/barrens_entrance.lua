@@ -1,6 +1,6 @@
 local config = {
 	[4604] = {
-		timer = 65021,
+		timer = 65024,
 		range = 8,
 		newPos = Position{33505, 31487, 9},
 		bossName = 'Vok the Freakish',

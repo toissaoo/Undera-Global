@@ -1,6 +1,6 @@
 local config = {
 	[4602] = {
-		timer = 65021,
+		timer = 65022,
 		range = 8,
 		newPos = Position{33467, 31399, 8},
 		bossName = 'Igrix the Flimsy',
