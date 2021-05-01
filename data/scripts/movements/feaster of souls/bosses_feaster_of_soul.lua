@@ -7,35 +7,21 @@ local UniqueTable = {
 		bossName = "Unaz The Mean",
 		bossPos = {x = 33571, y = 31496, z = 8}
 	},
-	-- Kalyassa entrance
-	[35002] = {
-		storage = Storage.FirstDragon.ChestCounter,
-		value = 5,
+	-- Irgix The Flimsy entrance
+	[30015] = {
 		range = 10,
-		timer = Storage.FirstDragon.KalyassaTimer,
-		newPos = {x = 32078, y = 32456, z = 8},
-		bossName = "Kalyassa",
-		bossPos = {x = 32079, y = 32459, z = 8}
+		timer = 65022,
+		newPos = {x = 33467, y = 31401, z = 8},
+		bossName = "Irgix The Flimsy",
+		bossPos = {x = 33467, y = 31401, z = 8}
 	},
-	-- Zorvorax entrance
-	[35003] = {
-		storage = Storage.FirstDragon.SecretsCounter,
-		value = 3,
+	-- Vok The Freakish entrance
+	[30016] = {
 		range = 10,
-		timer = Storage.FirstDragon.ZorvoraxTimer,
-		newPos = {x = 32008, y = 32396, z = 8},
-		bossName = "Zorvorax",
-		bossPos = {x = 32015, y = 32396, z = 8}
-	},
-	-- Gelidrazah entrance
-	[35004] = {
-		storage = Storage.FirstDragon.GelidrazahAccess,
-		value = 1,
-		range = 10,
-		timer = Storage.FirstDragon.GelidrazahTimer,
-		newPos = {x = 32076, y = 32402, z = 8},
-		bossName = "Gelidrazah The Frozen",
-		bossPos = {x = 32078, y = 32400, z = 8}
+		timer = 65023,
+		newPos = {x = 33507, y = 31490, z = 9},
+		bossName = "Vok The Freakish",
+		bossPos = {x = 33507, y = 31490, z = 9}
 	}
 }
 
@@ -66,14 +52,6 @@ function entranceTeleport.onStepIn(creature, item, position, fromPosition)
 		player:say("You have to wait to challenge this enemy again!", TALKTYPE_MONSTER_SAY)
 		return true
 	end
-
-	--if player:getStorageValue(Storage.FirstDragon.Questline) < 1 or player:getStorageValue(setting.storage) < setting.value then
-	--	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	--	player:teleportTo(fromPosition)
-	--	player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
-	--	player:say("You don't have permission to use this portal", TALKTYPE_MONSTER_SAY)
-	--	return true
-	--end
 	
 	if  player:getStorageValue(setting.timer) < os.time() then
 		local monster = Game.createMonster(setting.bossName, setting.bossPos, true, true)
