@@ -8,9 +8,9 @@ local config = {
 	}
 }
 
-local unazzEntrance = MoveEvent()
+local igrixEntrance = MoveEvent()
 
-function unazzEntrance.onStepIn(creature, item, position, fromPosition)
+function igrixEntrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return
@@ -53,6 +53,6 @@ function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-unazzEntrance:type("stepin")
-unazzEntrance:aid(4601)
-unazzEntrance:register()
+igrixEntrance:type("stepin")
+igrixEntrance:aid(4601)
+igrixEntrance:register()
