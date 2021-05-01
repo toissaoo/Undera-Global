@@ -2384,8 +2384,7 @@ GlobalStorage = {
 	Fot = {
 		Unazz = 65021,
 		Irgix = 65022,
-		Vok = 65023,
-		UnazzTimer = 65024
+		Vok = 65023
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169

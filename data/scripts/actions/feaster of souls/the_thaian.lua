@@ -23,7 +23,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			return true
 		end
 		
-		local team, participan{}
+		local team, participan = {}
 
 		for i = 1, #config.playerPositions do
 			participan = Tile(config.playerPositions[i]):getTopCreature()
