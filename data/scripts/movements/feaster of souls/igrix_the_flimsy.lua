@@ -8,9 +8,9 @@ local config = {
 	}
 }
 
-local IgrixEntrance = MoveEvent()
+local unazzEntrance = MoveEvent()
 
-function IgrixEntrance.onStepIn(creature, item, position, fromPosition)
+function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 	local player = creature:getPlayer()
 	if not player then
 		return
@@ -33,7 +33,7 @@ function IgrixEntrance.onStepIn(creature, item, position, fromPosition)
 		position:sendMagicEffect(CONST_ME_TELEPORT)
 		player:teleportTo(fromPosition, true)
 		player:getPosition():sendMagicEffect(CONST_ME_MORTAREA)
-		player:say('Someone is fighting against the boss! You need wait a while.', TALKTYPE_MONSTER_SAY)
+		player:say('Someone is fighting against the boss! You need wait awhile.', TALKTYPE_MONSTER_SAY)
 		return true
 	end
 	clearRoom(teleport.bossPos, teleport.range, teleport.range, fromPosition)
@@ -53,6 +53,6 @@ function IgrixEntrance.onStepIn(creature, item, position, fromPosition)
 	return true
 end
 
-IgrixEntrance:type("stepin")
-IgrixEntrance:aid(4602)
-IgrixEntrance:register()
+unazzEntrance:type("stepin")
+unazzEntrance:aid(4602)
+unazzEntrance:register()
