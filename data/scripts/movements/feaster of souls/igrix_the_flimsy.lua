@@ -1,5 +1,5 @@
 local config = {
-	[4602] = {
+	[4601] = {
 		timer = 65022,
 		range = 8,
 		newPos = Position{33467, 31399, 8},
@@ -54,5 +54,5 @@ function unazzEntrance.onStepIn(creature, item, position, fromPosition)
 end
 
 unazzEntrance:type("stepin")
-unazzEntrance:aid(4602)
+unazzEntrance:aid(4601)
 unazzEntrance:register()
