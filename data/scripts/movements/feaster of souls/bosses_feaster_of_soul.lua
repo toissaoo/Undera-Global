@@ -3,9 +3,9 @@ local UniqueTable = {
 	[30014] = {
 		range = 10,
 		timer = 65021,
-		newPos = {x = 33568, y = 31495, z = 8},
+		newPos = {x = 33571, y = 31496, z = 8},
 		bossName = "Unaz The Mean",
-		bossPos = {x = 33568, y = 31495, z = 8}
+		bossPos = {x = 33571, y = 31496, z = 8}
 	},
 	-- Kalyassa entrance
 	[35002] = {
