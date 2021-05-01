@@ -1,16 +1,16 @@
 local config = {
 	requiredLevel = 250,
-	dailtrue,
-	roomCenterPosition = Position{33708, 31537, 14},
+	daily = true,
+	roomCenterPosition = Position(33708, 31538, 14),
 	playerPositions = {
-		Position{33736, 31537, 14},
-		Position{33737, 31537, 14},
-		Position{33738, 31537, 14},
-		Position{33739, 31537, 14},
-		Position{33740, 31537, 14}
+		Position(33736, 31537, 14),
+		Position(33737, 31537, 14),
+		Position(33738, 31537, 14),
+		Position(33739, 31537, 14),
+		Position(33740, 31537, 14)
 	},
-	teleportPosition = Position{33708, 31545, 14},
-	bossPosition = Position{33708, 31537, 14}
+	teleportPosition = Position(33708, 31538, 14),
+	bossPosition = Position(33708, 31538, 14)
 }
 
 local leverboss = Action()
@@ -38,7 +38,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(65027) > os.time() then
+				if config.daily and participant:getStorageValue(65024) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					player:sendCancelMessage("Not all players are ready yet from last battle.")
 					return true
@@ -68,9 +68,8 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.FeasterOfSouls.TheUnwelcomeTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(65024, os.time() + 20*60*60) -- 20 hours
 		end
-		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
 

@@ -1,16 +1,16 @@
 local config = {
 	requiredLevel = 250,
-	dailtrue,
-	roomCenterPosition = Position{33812, 31891, 8},
+	daily = true,
+	roomCenterPosition = Position(33711, 31469, 14),
 	playerPositions = {
-		Position{33903, 31880, 8},
-		Position{33902, 31880, 8},
-		Position{33901, 31880, 8},
-		Position{33900, 31880, 8}},
-		Position{33899, 31880, 8}
+		Position(33734, 31471, 14),
+		Position(33735, 31471, 14),
+		Position(33736, 31471, 14),
+		Position(33737, 31471, 14),
+		Position(33748, 31471, 14)
 	},
-	teleportPosition = Position{33813, 31903, 8},
-	bossPosition = Position{33812, 31891, 8}
+	teleportPosition = Position(33711, 31469, 14),
+	bossPosition = Position(33711, 31469, 14)
 }
 
 local leverboss = Action()
@@ -23,10 +23,10 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			return true
 		end
 		
-		local team, participan = {}
+		local team, participant = {}
 
 		for i = 1, #config.playerPositions do
-			participan = Tile(config.playerPositions[i]):getTopCreature()
+			participant = Tile(config.playerPositions[i]):getTopCreature()
 			
 			-- Check there is a participant player
 			if participant and participant:isPlayer() then
@@ -61,16 +61,15 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		end
 
 		-- Spawn boss
-		Game.createMonster("The Thaian", config.bossPosition)
+		Game.createMonster("The Fear Feaster", config.bossPosition)
 
 		-- Teleport team participants
 		for i = 1, #team do
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.FeasterOfSouls.TheThaianTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(65026, os.time() + 20*60*60) -- 20 hours
 		end
-		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
 
@@ -78,5 +77,5 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-leverboss:aid(20014)
+leverboss:aid(20011)
 leverboss:register()
