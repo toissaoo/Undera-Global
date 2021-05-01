@@ -2387,7 +2387,8 @@ GlobalStorage = {
 		Irgix = 65022,
 		Vok = 65023,
 		TheUnwelcome = 65024,
-		TheDreadMaiden = 65025
+		TheDreadMaiden = 65025,
+		TheFearFeaster = 65026
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169
