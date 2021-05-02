@@ -143,6 +143,14 @@ Storage = {
 	Old storages
 	Over time, this will be dropped and replaced by the table above
 	]]
+	--Lion Sanctum Bosses 70000 - 70004
+    lionsSanctumBosses = {
+        lionBoss1 = 70000,
+        lionBoss2 = 70001,
+        lionBoss3 = 70002,
+        lionBoss4 = 70003,
+        lionsSanctumAcessDoors = 70004
+    },
 	DeeplingsWorldChange = {
 		-- Reserved storage from 50000 - 50009
 		Questline = 50000,
