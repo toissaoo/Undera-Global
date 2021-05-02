@@ -85,7 +85,7 @@ monster.loot = {
 	{name = "Leather Legs", chance = 81000},
 	{name = "Violet Gem", chance = 55000},
 	{name = "Knight Legs", chance = 50000},
-	{name = "Meat", chance = 80000 maxCount = 3},
+	{name = "Meat", chance = 80000, maxCount = 3},
 	{name = "Lion Crest", chance = 65000},
 	{name = "Lion Cloack Patch", chance = 65000},
 	{name = "Great Mana Potion", chance = 39000, maxCount = 1},

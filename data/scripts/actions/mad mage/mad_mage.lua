@@ -1,5 +1,3 @@
--- Mad Mage
-
 local config = {
 	requiredLevel = 100,
 	daily = true,
@@ -8,7 +6,7 @@ local config = {
 		Position(33356, 31873, 9)
 	},
 	teleportPosition = Position(33358, 31873, 9),
-	bossPosition = Position(33369, 31873, 9))
+	bossPosition = Position(33369, 31873, 9)
 }
 
 local leverboss = Action()
@@ -31,14 +29,14 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				-- Check participant level
 				if participant:getLevel() < config.requiredLevel then
 					player:sendTextMessage(MESSAGE_STATUS_SMALL,
-						"You need to be level ".. config.requiredLevel .." or higher.")
+						"All the players need to be level ".. config.requiredLevel .." or higher.")
 					return true
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(Storage.MadMageTimer) > os.time() then
+				if config.daily and participant:getStorageValue(Storage.MadMage) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
-					player:sendCancelMessage("You are not ready yet from last battle.")
+					player:sendCancelMessage("Not all players are ready yet from last battle.")
 					return true
 				end
 
@@ -51,7 +49,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		for i = 1, #specs do
 			spec = specs[i]
 			if spec:isPlayer() then
-				player:sendTextMessage(MESSAGE_STATUS_SMALL, "Someone is already inside the boss room.")
+				player:sendTextMessage(MESSAGE_STATUS_SMALL, "A team is already inside the boss room.")
 				return true
 			end
 
@@ -66,7 +64,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.GraveDanger.KingZelosTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.MadMageTimer, os.time() + 20*60*60) -- 20 hours
 		end
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
@@ -76,5 +74,5 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-leverboss:aid(20010)
+leverboss:aid(20004)
 leverboss:register()
