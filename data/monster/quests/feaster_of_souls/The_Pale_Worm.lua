@@ -1,10 +1,10 @@
-local mType = Game.createMonsterType("The Fear Feaster")
+local mType = Game.createMonsterType("The Pale Worm")
 local monster = {}
 
-monster.description = "The Fear Feaster"
+monster.description = "The Pale Worm"
 monster.experience = 13090
 monster.outfit = {
-	lookType = 1276,
+	lookType = 1272,
 	lookHead = 79,
 	lookBody = 83,
 	lookLegs = 113,
@@ -79,12 +79,12 @@ monster.loot = {
 	{name = "cursed bone", chance = 7840},
 	{name = "soulforged lantern", chance = 7840},
 	{name = "grimace", chance = 5880},
-	{name = "amber", chance = 5880},
+	{name = "The Spectral Scrap of Cloth", chance = 880},
 	{name = "amber with a dragonfly", chance = 3920},
 	{name = "ghost claw", chance = 960},
-	{name = "bloody tears", chance = 1500},
+	{name = "Ring of Souls", chance = 1500},
 	{name = "ghost chestplate", chance = 150},
-	{name = "spooky hood", chance = 150}
+	{name = "Phantasmal Axe", chance = 150}
 }
 
 monster.attacks = {
