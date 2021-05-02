@@ -2389,14 +2389,11 @@ GlobalStorage = {
 		EarlOsam = 65019,
 		SirbalocSinictros = 65020
 	},
-	-- Reserved storage from 65021 - 65028
 	Fot = {
 		Unazz = 65021,
 		Irgix = 65022,
 		Vok = 65023,
-		TheUnwelcome = 65024,
-		TheDreadMaiden = 65025,
-		TheFearFeaster = 65026
+		UnazzTimer = 65024
 	},
 	TheAncientTombs = {
 		-- Reserved storage from 60160 - 60169

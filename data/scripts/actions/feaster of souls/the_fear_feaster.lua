@@ -1,21 +1,16 @@
 local config = {
 	requiredLevel = 250,
 	dailtrue,
-	roomCenterPosition = Position{33806, 31504, 14},
+	roomCenterPosition = Position{33711, 31468, 14},
 	playerPositions = {
-		Position{33772, 31504, 14},
-		Position{33773, 31503, 14},
-		Position{33773, 31504, 14},
-		Position{33773, 31505, 14},
-		Position{33774, 31503, 14},
-		Position{33774, 31504, 14},
-		Position{33774, 31505, 14},
-		Position{33775, 31503, 14},
-		Position{33775, 31504, 14},
-		Position{33775, 31505, 14}
+		Position{33734, 31471, 14},
+		Position{33735, 31471, 14},
+		Position{33736, 31471, 14},
+		Position{33737, 31471, 14},
+		Position{33738, 31471, 14}
 	},
-	teleportPosition = Position{33806, 31513, 14},
-	bossPosition = Position{33806, 31504, 14}
+	teleportPosition = Position{33711, 31474, 14},
+	bossPosition = Position{33711, 31468, 14}
 }
 
 local leverboss = Action()
@@ -43,7 +38,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(Storage.FeasterOfSouls.ThePaleWorm) > os.time() then
+				if config.daily and participant:getStorageValue(Storage.FeasterOfSouls.TheFearFeaster) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					player:sendCancelMessage("Not all players are ready yet from last battle.")
 					return true
@@ -66,14 +61,14 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 		end
 
 		-- Spawn boss
-		Game.createMonster("The Pale Worm", config.bossPosition)
+		Game.createMonster("The Fear Feaster", config.bossPosition)
 
 		-- Teleport team participants
 		for i = 1, #team do
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(Storage.FeasterOfSouls.ThePaleWormTimer, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.FeasterOfSouls.TheFearFeasterTimer, os.time() + 20*60*60) -- 20 hours
 		end
 		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
@@ -83,5 +78,5 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 	return true
 end
 
-leverboss:aid(20013)
+leverboss:aid(20012)
 leverboss:register()

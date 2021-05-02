@@ -10,11 +10,8 @@ local config = {
 	[30010] = Position(33538, 31440, 9),
 	[30011] = Position(33571, 31467, 9),
     [30012] = Position(33557, 31467, 9),
-	[30013] = Position{33220, 31704, 7},
-		-- TPS VENGOTH --
-	[14530] = Position(33648, 31445, 10),
-	[14531] = Position(33648, 31445, 10)
-	
+		-- barren entrance --
+	[30013] = Position{33220, 31704, 7}
 }
 
 local variavelName = MoveEvent()

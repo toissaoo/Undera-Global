@@ -1,16 +1,16 @@
 local config = {
 	requiredLevel = 250,
-	daily = true,
-	roomCenterPosition = Position(33712, 31503, 14),
+	dailtrue,
+	roomCenterPosition = Position{33713, 31503, 14},
 	playerPositions = {
-		Position(33739, 31506, 14),
-		Position(33740, 31506, 14),
-		Position(33741, 31506, 14),
-		Position(33742, 31506, 14),
-		Position(33743, 31506, 14)
+		Position{33739, 31506, 14},
+		Position{33740, 31506, 14},
+		Position{33741, 31506, 14},
+		Position{33742, 31506, 14},
+		Position{33743, 31506, 14}
 	},
-	teleportPosition = Position(33712, 31503, 14),
-	bossPosition = Position(33712, 31503, 14)
+	teleportPosition = Position{33712, 31509, 14},
+	bossPosition = Position{33713, 31503, 14}
 }
 
 local leverboss = Action()
@@ -38,7 +38,7 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 				end
 
 				-- Check participant boss timer
-				if config.daily and participant:getStorageValue(65025) > os.time() then
+				if config.daily and participant:getStorageValue(Storage.FeasterOfSouls.TheDreadMaiden) > os.time() then
 					player:getPosition():sendMagicEffect(CONST_ME_POFF)
 					player:sendCancelMessage("Not all players are ready yet from last battle.")
 					return true
@@ -68,8 +68,9 @@ function leverboss.onUse(player, item, fromPosition, target, toPosition, isHotke
 			team[i]:getPosition():sendMagicEffect(CONST_ME_POFF)
 			team[i]:teleportTo(config.teleportPosition)
 			-- Assign boss timer
-			team[i]:setStorageValue(65025, os.time() + 20*60*60) -- 20 hours
+			team[i]:setStorageValue(Storage.FeasterOfSouls.TheDreadMaidenTimer, os.time() + 20*60*60) -- 20 hours
 		end
+		
 		config.teleportPosition:sendMagicEffect(CONST_ME_ENERGYAREA)
 	end
 

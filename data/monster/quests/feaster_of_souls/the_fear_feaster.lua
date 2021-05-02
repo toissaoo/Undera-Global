@@ -4,7 +4,7 @@ local monster = {}
 monster.description = "The Fear Feaster"
 monster.experience = 13090
 monster.outfit = {
-	lookType = 1276,
+	lookType = 1061,
 	lookHead = 79,
 	lookBody = 83,
 	lookLegs = 113,
@@ -13,8 +13,8 @@ monster.outfit = {
 	lookMount = 0
 }
 
-monster.health = 40000
-monster.maxHealth = 40000
+monster.health = 20000
+monster.maxHealth = 20000
 monster.race = "undead"
 monster.corpse = 37572
 monster.speed = 500
@@ -81,7 +81,7 @@ monster.loot = {
 	{name = "grimace", chance = 5880},
 	{name = "amber", chance = 5880},
 	{name = "amber with a dragonfly", chance = 3920},
-	{name = "ghost claw", chance = 960},
+	{name = "ghost claw", chance = 1960},
 	{name = "bloody tears", chance = 1500},
 	{name = "ghost chestplate", chance = 150},
 	{name = "spooky hood", chance = 150}
